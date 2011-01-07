@@ -1,0 +1,3 @@
+module CurrencySpy
+  # Your code goes here...
+end
