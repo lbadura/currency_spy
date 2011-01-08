@@ -15,12 +15,6 @@ describe "An instance of scraper" do
     lambda {@scraper.fetch_rates("XYZ")}.should raise_error(Exception, "This method should be invoked from CurrencySpy::Scraper sub class")
   end
 
-  it "should raise an exception if an abstract method is called" do
-    lambda {@scraper.buy_rate}.should raise_error(NotImplementedError)
-    lambda {@scraper.sell_rate}.should raise_error(NotImplementedError)
-    lambda {@scraper.rate_time}.should raise_error(NotImplementedError)
-  end
-
   it "should allow to read the mechanize parser" do
     @scraper.parser.should_not be_nil
     @scraper.parser.should be_a_kind_of Mechanize

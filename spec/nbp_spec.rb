@@ -5,6 +5,10 @@ describe "A Nbp scraper instance" do
     @scraper = CurrencySpy::Nbp.new
   end
 
+  it "should return the name of the institution" do
+    @scraper.institution.should == "Narodowy Bank Polski"
+  end
+
   it "should have a proper url defined" do
     @scraper.url.should == 'http://www.nbp.pl/home.aspx?f=/kursy/kursyc.html'
   end

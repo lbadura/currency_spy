@@ -5,6 +5,7 @@ module CurrencySpy
       super
       @url = 'http://www.nbp.pl/home.aspx?f=/kursy/kursyc.html'
       @page = parser.get(url)
+      @institution = "Narodowy Bank Polski"
     end
 
     def buy_rate(currency_code = nil)
@@ -45,6 +46,6 @@ module CurrencySpy
       end
       return DateTime.strptime(res, "%Y-%m-%d")
     end
-
+    
   end
 end
