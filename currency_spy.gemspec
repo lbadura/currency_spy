@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Lukasz Badura"]
   s.email       = ["lukasz@niebo.net"]
-  s.homepage    = "http://www.badurowie.org/currency_spy"
+  s.homepage    = "http://rubygems.org/gems/currency_spy"
   s.summary     = %q{A gem to fetch currency rates.}
   s.description = %q{A simple gem to parse and fetch currency rates from different websites.}
 
