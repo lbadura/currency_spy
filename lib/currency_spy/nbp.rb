@@ -7,8 +7,9 @@ module CurrencySpy
       @page = parser.get(url)
     end
 
-    def buy_rate
-      regexp = Regexp.new(@currency_code)
+    def buy_rate(currency_code = nil)
+      currency_code = @currency_code ||= 'EUR'
+      regexp = Regexp.new(currency_code)
       @page.search('//tr[@valign="middle"]').each do |tr|
         tr.search('td').each do |td|
           if (regexp.match(td.content))
@@ -19,8 +20,9 @@ module CurrencySpy
       return nil
     end
 
-    def sell_rate
-      regexp = Regexp.new(@currency_code)
+    def sell_rate(currency_code = nil)
+      currency_code = @currency_code ||= 'EUR'
+      regexp = Regexp.new(currency_code)
       @page.search('//tr[@valign="middle"]').each do |tr|
         tr.search('td').each do |td|
           if (regexp.match(td.content))
@@ -32,6 +34,16 @@ module CurrencySpy
     end
 
     def rate_time
+      regexp = Regexp.new(/\d\d\d\d-\d\d-\d\d/)
+      res = nil
+      @page.search('//p[@class="nag"]').each do |p|
+        p.search('b').each do |b|
+          if (regexp.match(b.content))
+            res = b.content
+          end
+        end
+      end
+      return DateTime.strptime(res, "%Y-%m-%d")
     end
 
   end
