@@ -1,4 +1,4 @@
 $:.unshift File.dirname(__FILE__)
-require 'rubygems'
+require 'mechanize'
 require 'currency_spy/scraper'
 require 'currency_spy/nbp'
