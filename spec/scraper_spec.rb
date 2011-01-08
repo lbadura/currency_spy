@@ -28,5 +28,6 @@ describe "An instance of scraper" do
 
   it "should assign default properties" do
     @scraper.currency_code.should == 'EUR'
+    @scraper.url.should be_nil
   end
 end
