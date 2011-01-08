@@ -1,24 +1,26 @@
 module CurrencySpy
   class Scraper
     AVAILABLE_CODES = ['EUR', 'CHF', 'GBP'].freeze
-    attr_accessor :url, :currency_code
-    attr_reader :available_codes, :parser
-    def initialize(currency_code = 'EUR')
-      @currency_code = currency_code
+    attr_accessor :url
+    attr_reader :available_codes, :parser, :currency_code
+    def initialize()
       @parser = Mechanize.new
       @url = nil
     end
 
-    def fetch_for_code(currency_code)
-      if AVAILABLE_CODES.include?(currency_code)
-        @currency_code = currency_code
-        return [current_buy_rate, current_sell_rate, current_rate_time]
+    def fetch_rates(currency_code = 'EUR')
+      if self.class.superclass.eql?(Object)
+        raise Exception.new("This method should be invoked from CurrencySpy::Scraper sub class")
       else
-        raise Exception.new("Unsupported currency code: #{currency_code}")
+        if AVAILABLE_CODES.include?(currency_code)
+          @currency_code = currency_code
+          return [buy_rate, sell_rate, rate_time]
+        else
+          raise Exception.new("Unsupported currency code: #{currency_code}")
+        end
       end
     end
 
-    protected
     def buy_rate
       # This method should be defined in a sub class
       raise NotImplementedError

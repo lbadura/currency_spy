@@ -11,14 +11,14 @@ describe "An instance of scraper" do
     @scraper = CurrencySpy::Scraper.new
   end
 
-  it "should raise an exception if an unsupported currency code is used" do
-    lambda {@scraper.fetch_for_code("XYZ")}.should raise_error(Exception, "Unsupported currency code: XYZ")
+  it "should raise an exception if fetch_rate is called on Scraper class instance" do
+    lambda {@scraper.fetch_rates("XYZ")}.should raise_error(Exception, "This method should be invoked from CurrencySpy::Scraper sub class")
   end
 
   it "should raise an exception if an abstract method is called" do
-    lambda {@scraper.buy_rate}.should raise_error(NoMethodError, /protected method/)
-    lambda {@scraper.sell_rate}.should raise_error(NoMethodError, /protected method/)
-    lambda {@scraper.rate_time}.should raise_error(NoMethodError, /protected method/)
+    lambda {@scraper.buy_rate}.should raise_error(NotImplementedError)
+    lambda {@scraper.sell_rate}.should raise_error(NotImplementedError)
+    lambda {@scraper.rate_time}.should raise_error(NotImplementedError)
   end
 
   it "should allow to read the mechanize parser" do
@@ -27,7 +27,6 @@ describe "An instance of scraper" do
   end
 
   it "should assign default properties" do
-    @scraper.currency_code.should == 'EUR'
     @scraper.url.should be_nil
   end
 end
