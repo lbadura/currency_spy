@@ -1,0 +1,35 @@
+= CurrencySpy
+
+This is a simple gem composed of simple classes using the Mechanize parser to
+fetch currency rates from various websites. It's main purpose was to collect
+the data for a small bank loan comparison site. I've decided to publish this as
+a standalone gem in case anybody wishes to fetch some rates in their
+application. My classes deal mainly with Polish websites. Feel free to write
+more or request a source.
+
+== Requirements
+
+The gem uses Mechanize to parse sites. I recommend using bundler to easily
+install any dependencies. Please consult the gemspec for a list of
+dependencies (including test and development environment).
+
+== Installation
+
+The plugin can be installed from rubygems:
+  sudo gem install currency_spy
+
+To install the dependencies:
+  bundle
+
+You can also clone my GitHub repository
+(git://github.com/lbadura/currency_spy.git) and build the gem yourself and / or
+hack on it.
+
+== Credits
+
+Feel free to contact me at lukasz@niebo.net.
+My website: http://www.badurowie.org
+
+Copyright (c) 2011 Lukasz Badura. Released under the MIT license.
+
+
