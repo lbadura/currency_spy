@@ -6,6 +6,7 @@ module CurrencySpy
     attr_reader :available_codes, :parser, :institution
     def initialize()
       @url = nil
+      @currency_code = 'EUR'
     end
 
     def page(reload = false)
@@ -18,12 +19,11 @@ module CurrencySpy
       return @page
     end
 
-    def fetch_rates(currency_code = 'EUR')
+    def fetch_rates
       if self.class.superclass.eql?(Object)
         raise Exception.new("This method should be invoked from CurrencySpy::Scraper sub class")
       else
         if AVAILABLE_CODES.include?(currency_code)
-          @currency_code = currency_code
           response = {}
           RATES.each do |rate|
             symbol = rate.to_sym

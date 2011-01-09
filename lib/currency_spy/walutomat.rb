@@ -7,8 +7,7 @@ module CurrencySpy
       @institution = 'Walutomat'
     end
 
-    def medium_rate(currency_code = nil)
-      currency_code = @currency_code ||= 'EUR'
+    def medium_rate
       regexp = Regexp.new(currency_code)
       return 1.0
     end

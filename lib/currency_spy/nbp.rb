@@ -7,8 +7,7 @@ module CurrencySpy
       @institution = "Narodowy Bank Polski"
     end
 
-    def buy_rate(currency_code = nil)
-      currency_code = @currency_code ||= 'EUR'
+    def buy_rate
       regexp = Regexp.new(currency_code)
       page.search('//tr[@valign="middle"]').each do |tr|
         tr.search('td').each do |td|
@@ -20,8 +19,7 @@ module CurrencySpy
       return nil
     end
 
-    def sell_rate(currency_code = nil)
-      currency_code = @currency_code ||= 'EUR'
+    def sell_rate
       regexp = Regexp.new(currency_code)
       page.search('//tr[@valign="middle"]').each do |tr|
         tr.search('td').each do |td|

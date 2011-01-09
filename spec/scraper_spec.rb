@@ -12,7 +12,8 @@ describe "A plain instance of scraper" do
   end
 
   it "should raise an exception if fetch_rate is called on Scraper class instance" do
-    lambda {@scraper.fetch_rates("XYZ")}.should raise_error(Exception, "This method should be invoked from CurrencySpy::Scraper sub class")
+    @scraper.currency_code = "XYZ"
+    lambda {@scraper.fetch_rates}.should raise_error(Exception, "This method should be invoked from CurrencySpy::Scraper sub class")
   end
 
   it "should not parse any pages" do
