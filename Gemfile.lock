@@ -1,12 +1,17 @@
 PATH
   remote: .
   specs:
-    currency_spy (0.0.1)
+    currency_spy (0.0.2)
+      bundler
+      mechanize
 
 GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.2)
+    mechanize (1.0.0)
+      nokogiri (>= 1.2.1)
+    nokogiri (1.4.4)
     rspec (2.4.0)
       rspec-core (~> 2.4.0)
       rspec-expectations (~> 2.4.0)
@@ -20,5 +25,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   currency_spy!
+  mechanize
   rspec
