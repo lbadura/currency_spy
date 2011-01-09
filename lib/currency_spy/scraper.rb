@@ -2,11 +2,20 @@ module CurrencySpy
   class Scraper
     AVAILABLE_CODES = ['EUR', 'CHF', 'GBP'].freeze
     RATES = %w(buy_rate sell_rate medium_rate rate_time).freeze
-    attr_accessor :url, :currency_code
+    attr_accessor :currency_code, :url
     attr_reader :available_codes, :parser, :institution
     def initialize()
-      @parser = Mechanize.new
       @url = nil
+    end
+
+    def page(reload = false)
+      return nil if @url.nil?
+      unless reload
+        @page ||= Mechanize.new.get(@url)
+      else
+        @page = Mechanize.new.get(@url)
+      end
+      return @page
     end
 
     def fetch_rates(currency_code = 'EUR')
