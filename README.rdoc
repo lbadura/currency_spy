@@ -25,6 +25,14 @@ You can also clone my GitHub repository
 (git://github.com/lbadura/currency_spy.git) and build the gem yourself and / or
 hack on it.
 
+== Usage
+
+ The usage is really simple. To fetch rates from given source just instantiate
+ a class which represents that source and call fetch_rates on it:
+    nbp = CurrencySpy::Nbp.new
+    rates = nbp.fetch_rates
+    => {:buy_rate=>3.8482, :sell_rate=>3.926, :rate_time=>#<DateTime:2011-01-07T00:00:00+00:00 (4911137/2,0/1,2299161)>}
+
 == Credits
 
 Feel free to contact me at lukasz@niebo.net.
