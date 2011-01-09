@@ -9,21 +9,26 @@ module CurrencySpy
 
     def medium_rate
       regexp = Regexp.new(currency_code)
-      return 1.0
+      res = nil
+      page.search("//td[@name='pair']").each do |td|
+        if (regexp.match(td.content))
+          res = td.next_element.content.to_f
+        end
+      end
+      return res
     end
 
     def rate_time
-      regexp = Regexp.new(/\d\d\d\d-\d\d-\d\d/)
+      regexp = Regexp.new(currency_code)
+      time_regexp = Regexp.new(/\d+:\d+/)
       res = nil
-      page.search('//p[@class="nag"]').each do |p|
-        p.search('b').each do |b|
-          if (regexp.match(b.content))
-            res = b.content
-          end
+      page.search("//td[@name='pair']").each do |td|
+        if (regexp.match(td.content))
+          hour = td.next_element.next_element.content
+          res = DateTime.parse(hour)
         end
       end
-      return DateTime.new
+      return res
     end
-    
   end
 end
