@@ -5,10 +5,11 @@ module CurrencySpy
       super
       @url = 'http://www.walutomat.pl/rates.php'
       @institution = 'Walutomat'
+      @available_codes = %w(EUR USD GBP CHF)
     end
 
     def medium_rate
-      regexp = Regexp.new(currency_code)
+      regexp = Regexp.new("#{currency_code} / PLN")
       res = nil
       page.search("//td[@name='pair']").each do |td|
         if (regexp.match(td.content))

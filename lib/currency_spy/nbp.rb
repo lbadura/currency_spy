@@ -5,6 +5,7 @@ module CurrencySpy
       super
       @url = 'http://www.nbp.pl/home.aspx?f=/kursy/kursyc.html'
       @institution = "Narodowy Bank Polski"
+      @available_codes = %w(EUR USD GBP CHF AUS AUD CAD CZK DKK NOK SEK)
     end
 
     def buy_rate

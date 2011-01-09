@@ -1,14 +1,12 @@
 require 'spec_helper'
 
-describe "A Scraper class" do
-  it "Should have a list of available currency codes" do
-    CurrencySpy::Scraper::AVAILABLE_CODES.should_not be_empty
-  end
-end
-
 describe "A plain instance of scraper" do
   before :each do
     @scraper = CurrencySpy::Scraper.new
+  end
+
+  it "should not contain a list of available currency codes" do
+    @scraper.available_codes.should be_nil
   end
 
   it "should raise an exception if fetch_rate is called on Scraper class instance" do

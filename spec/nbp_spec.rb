@@ -13,6 +13,10 @@ describe "A Nbp scraper instance" do
     @scraper.url.should == 'http://www.nbp.pl/home.aspx?f=/kursy/kursyc.html'
   end
 
+  it "should contain a list of available currency codes" do
+    @scraper.available_codes.should_not be_nil
+  end
+
   it "should return currency values" do
     @scraper.fetch_rates.should_not be_nil
     @scraper.fetch_rates.length.should == 3
