@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: CurrencySpy::Scraper</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/currency_spy/scraper_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/currency_spy/scraper.rb">lib/currency_spy/scraper.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-check_currency_code_validity">#check_currency_code_validity</a></li>
+					
+					<li><a href="#method-i-fetch_rates">#fetch_rates</a></li>
+					
+					<li><a href="#method-i-page">#page</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../Gemfile.html">Gemfile</a></li>
+				
+					<li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+				
+					<li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+				
+					<li class="file"><a href="../nbproject/private/rake-d_txt.html">rake-d.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../CurrencySpy.html">CurrencySpy</a></li>
+				
+					<li><a href="../CurrencySpy/DnbNord.html">CurrencySpy::DnbNord</a></li>
+				
+					<li><a href="../CurrencySpy/Nbp.html">CurrencySpy::Nbp</a></li>
+				
+					<li><a href="../CurrencySpy/Scraper.html">CurrencySpy::Scraper</a></li>
+				
+					<li><a href="../CurrencySpy/Walutomat.html">CurrencySpy::Walutomat</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">CurrencySpy::Scraper</h1>
+
+		<div id="description">
+			<p>
+A base class for all scrapers. Defines the common logic which is used
+across all of them.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="RATE_DATA">RATE_DATA</a></dt>
+				
+				<dd class="description"><p>
+Each item has to be implemented as a method in the scraper sub class.
+</p></dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="currency-code-attribute-method" class="method-detail">
+				<a name="currency_code"></a>
+				
+				<a name="currency_code="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">currency_code</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+current currency code we&#8217;re fetching rates for
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="url-attribute-method" class="method-detail">
+				<a name="url"></a>
+				
+				<a name="url="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">url</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+url of the source web page
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="available-codes-attribute-method" class="method-detail">
+				<a name="available_codes"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">available_codes</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+a list of codes available from given source
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="institution-attribute-method" class="method-detail">
+				<a name="institution"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">institution</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+name of the source institution
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Base constructor
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/currency_spy/scraper.rb, line 20</span>
+20:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>()
+21:       <span class="ruby-ivar">@url</span> = <span class="ruby-keyword kw">nil</span>
+22:       <span class="ruby-ivar">@currency_code</span> = <span class="ruby-value str">'EUR'</span>
+23:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="fetch-rates-method" class="method-detail ">
+				<a name="method-i-fetch_rates"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">fetch_rates</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Method which calls all rate fetching methods from the sub class and returns
+a Hash with appropriate values.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="fetch-rates-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/currency_spy/scraper.rb, line 40</span>
+40:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fetch_rates</span>
+41:       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Object</span>)
+42:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;This method should be invoked from CurrencySpy::Scraper sub class&quot;</span>)
+43:       <span class="ruby-keyword kw">else</span>
+44:         <span class="ruby-identifier">check_currency_code_validity</span>
+45:         <span class="ruby-identifier">response</span> = {}
+46:         <span class="ruby-constant">RATE_DATA</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rate</span><span class="ruby-operator">|</span>
+47:           <span class="ruby-identifier">symbol</span> = <span class="ruby-identifier">rate</span>.<span class="ruby-identifier">to_sym</span>
+48:           <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">instance_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">symbol</span>)
+49:             <span class="ruby-identifier">value</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">symbol</span>)
+50:             <span class="ruby-identifier">response</span>[<span class="ruby-identifier">symbol</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+51:           <span class="ruby-keyword kw">end</span>
+52:         <span class="ruby-keyword kw">end</span>
+53:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">response</span>
+54:       <span class="ruby-keyword kw">end</span>
+55:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="page-method" class="method-detail ">
+				<a name="method-i-page"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">page</span><span
+						class="method-args">(reload = false)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns a Mechanize::Page instance which is the being searched on. If the
+page was once fetched it&#8217;s reuse. To reload, call with an argument
+evaluating to true.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="page-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/currency_spy/scraper.rb, line 28</span>
+28:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page</span>(<span class="ruby-identifier">reload</span> = <span class="ruby-keyword kw">false</span>)
+29:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span>   <span class="ruby-identifier">url</span>.<span class="ruby-identifier">nil?</span>
+30:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">reload</span>
+31:         <span class="ruby-ivar">@page</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Mechanize</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">url</span>)
+32:       <span class="ruby-keyword kw">else</span>
+33:         <span class="ruby-ivar">@page</span> = <span class="ruby-constant">Mechanize</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">url</span>)
+34:       <span class="ruby-keyword kw">end</span>
+35:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@page</span>
+36:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="protected-instance-method-details" class="method-section section">
+			<h3 class="section-header">Protected Instance Methods</h3>
+
+		
+			<div id="check-currency-code-validity-method" class="method-detail ">
+				<a name="method-i-check_currency_code_validity"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">check_currency_code_validity</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Helper method to check if a given source provides (supports) information
+about given currency.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="check-currency-code-validity-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/currency_spy/scraper.rb, line 60</span>
+60:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_currency_code_validity</span>
+61:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available_codes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">currency_code</span>)
+62:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+63:       <span class="ruby-keyword kw">else</span>
+64:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unsupported currency code: #{currency_code}&quot;</span>)
+65:       <span class="ruby-keyword kw">end</span>
+66:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

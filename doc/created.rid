@@ -1,0 +1,17 @@
+Wed, 12 Jan 2011 19:47:48 +0100
+./nbproject/private/rake-d.txt	Wed, 12 Jan 2011 12:34:24 +0100
+./Rakefile	Sat, 01 Jan 2011 18:23:40 +0100
+./LICENSE	Sat, 08 Jan 2011 17:21:16 +0100
+./spec/dnb_nord_spec.rb	Wed, 12 Jan 2011 17:01:27 +0100
+./spec/walutomat_spec.rb	Mon, 10 Jan 2011 10:11:18 +0100
+./spec/scraper_spec.rb	Mon, 10 Jan 2011 10:11:18 +0100
+./spec/spec_helper.rb	Sat, 08 Jan 2011 13:47:42 +0100
+./spec/nbp_spec.rb	Mon, 10 Jan 2011 10:11:18 +0100
+./Gemfile	Sat, 01 Jan 2011 18:23:40 +0100
+./README.rdoc	Mon, 10 Jan 2011 10:11:18 +0100
+./lib/currency_spy.rb	Wed, 12 Jan 2011 19:32:16 +0100
+./lib/currency_spy/version.rb	Wed, 12 Jan 2011 19:47:11 +0100
+./lib/currency_spy/nbp.rb	Wed, 12 Jan 2011 17:29:21 +0100
+./lib/currency_spy/dnb_nord.rb	Wed, 12 Jan 2011 19:23:22 +0100
+./lib/currency_spy/scraper.rb	Wed, 12 Jan 2011 19:45:54 +0100
+./lib/currency_spy/walutomat.rb	Wed, 12 Jan 2011 19:15:38 +0100
