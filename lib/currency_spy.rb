@@ -2,7 +2,7 @@ $:.unshift File.dirname(__FILE__)
 require 'mechanize'
 require 'currency_spy/scraper'
 
-scrapers = %w(nbp walutomat)
+scrapers = %w(nbp walutomat dnb_nord)
 scrapers.each do |scraper|
   require "currency_spy/#{scraper}"
 end
