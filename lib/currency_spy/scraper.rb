@@ -9,11 +9,11 @@ module CurrencySpy
     end
 
     def page(reload = false)
-      return nil if @url.nil?
+      return nil if   url.nil?
       unless reload
-        @page ||= Mechanize.new.get(@url)
+        @page ||= Mechanize.new.get(url)
       else
-        @page = Mechanize.new.get(@url)
+        @page = Mechanize.new.get(url)
       end
       return @page
     end

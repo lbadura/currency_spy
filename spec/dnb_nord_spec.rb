@@ -10,11 +10,10 @@ describe "A DnbNord scraper instance" do
   end
 
   it "should have a proper url defined" do
-    @scraper.session_date = Date.parse("11-01-2011")
     @scraper.session_no = 1
-    @scraper.url.should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:data=2011-01-11=08:15'
+    @scraper.url.should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=08:15'
     @scraper.session_no = 2
-    @scraper.url.should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:data=2011-01-11=12:15'
+    @scraper.url.should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=12:15'
   end
 
   it "should contain a list of available currency codes" do
@@ -22,7 +21,6 @@ describe "A DnbNord scraper instance" do
   end
 
   it "should return currency values" do
-    @scraper.session_date = Date.parse("11-01-2011")
     @scraper.session_no = 1
     @scraper.fetch_rates.should_not be_nil
     @scraper.fetch_rates.length.should == 3
@@ -45,7 +43,5 @@ describe "A DnbNord scraper instance" do
 
   it "should return rate time as a DateTime instance" do
     @scraper.fetch_rates[:rate_time].should be_a_kind_of(DateTime)
-    session_date = DateTime.parse("11-01-2011 08:15")
-    @scraper.fetch_rates[:rate_time].strftime(CurrencySpy::DATE_FORMAT) == session_date.strftime(CurrencySpy::DATE_FORMAT)
   end
 end
