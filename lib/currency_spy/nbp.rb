@@ -1,6 +1,12 @@
 module CurrencySpy
+  # A class designed to fetch currency information from the website of The Polish National Bank (Narodowy Bank Polski).
   class Nbp < CurrencySpy::Scraper
 
+    # Constructor method.
+    # Initializes the following:
+    # * a url of the source
+    # * and the name of the source
+    # * a list of currency codes available
     def initialize
       super
       @url = 'http://www.nbp.pl/home.aspx?f=/kursy/kursyc.html'
@@ -8,6 +14,7 @@ module CurrencySpy
       @available_codes = %w(EUR USD GBP CHF AUS AUD CAD CZK DKK NOK SEK)
     end
 
+    # Get the buying rate from the parsed website
     def buy_rate
       regexp = Regexp.new(currency_code)
       page.search('//tr[@valign="middle"]').each do |tr|
@@ -20,6 +27,7 @@ module CurrencySpy
       return nil
     end
 
+    # Get the selling rate from the parsed website
     def sell_rate
       regexp = Regexp.new(currency_code)
       page.search('//tr[@valign="middle"]').each do |tr|
@@ -32,6 +40,7 @@ module CurrencySpy
       return nil
     end
 
+    # Get the time for this rate (based on the information on the website)
     def rate_time
       regexp = Regexp.new(/\d\d\d\d-\d\d-\d\d/)
       res = nil
