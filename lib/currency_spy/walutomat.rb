@@ -18,7 +18,7 @@ module CurrencySpy
     def medium_rate
       regexp = Regexp.new("#{currency_code} / PLN")
       res = nil
-      page.search("//td[@name='pair']").each do |td|
+      page.search("//span[@name='pair']").each do |td|
         if (regexp.match(td.content))
           res = td.next_element.content.to_f
         end
@@ -29,9 +29,8 @@ module CurrencySpy
     # The hour of the rate
     def rate_time
       regexp = Regexp.new(currency_code)
-      time_regexp = Regexp.new(/\d+:\d+/)
       res = nil
-      page.search("//td[@name='pair']").each do |td|
+      page.search("//span[@name='pair']").each do |td|
         if (regexp.match(td.content))
           hour = td.next_element.next_element.content
           res = DateTime.parse(hour)
