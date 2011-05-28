@@ -3,28 +3,28 @@ require 'spec_helper'
 describe "A DnbNord scraper instance" do
   let(:scraper) { CurrencySpy::DnbNord.new }
 
-  it "should return the name of the institution" do
-    scraper.institution.should == "DnB Nord"
+  shared_examples_for "a scraper instance" do
+    subject { scraper }
+
+    its(:fetch_rates) { should_not be_nil } 
+    its(:available_codes) { should_not be_nil }
+    its(:institution) { should == 'DnB Nord' }
   end
 
-  it "should have a proper url defined" do
-    scraper.session_no = 1
-    scraper.url.should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=08:15'
-    scraper.session_no = 2
-    scraper.url.should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=12:15'
+  context "for first session" do
+    before { scraper.session_no = 1 }
+    subject { scraper }
+
+    it_should_behave_like "a scraper instance"
+    its(:url) { should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=08:15' }
   end
 
-  it "should contain a list of available currency codes" do
-    scraper.available_codes.should_not be_nil
-  end
+  context "for the second session" do 
+    before { scraper.session_no = 2 }
+    subject { scraper }
 
-  it "should return currency values" do
-    scraper.session_no = 1
-    scraper.fetch_rates.should_not be_nil
-    scraper.fetch_rates.length.should == 3
-    scraper.buy_rate.should == scraper.fetch_rates[:buy_rate]
-    scraper.sell_rate.should == scraper.fetch_rates[:sell_rate]
-    scraper.rate_time.should == scraper.fetch_rates[:rate_time]
+    it_should_behave_like "a scraper instance"
+    its(:url) { should == 'http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=12:15' }
   end
 
   it "should return a buy rate smaller than the sell rate" do
