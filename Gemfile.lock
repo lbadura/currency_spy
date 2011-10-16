@@ -26,4 +26,5 @@ PLATFORMS
 
 DEPENDENCIES
   currency_spy!
+  mechanize
   rspec
