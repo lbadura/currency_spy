@@ -1,4 +1,9 @@
 source "http://rubygems.org"
-
-# Specify your gem's dependencies in currency_spy.gemspec
 gemspec
+
+gem "mechanize"
+gem "nokogiri"
+
+group :test do
+  gem "rspec"
+end

@@ -1,6 +1,6 @@
 module CurrencySpy
   # A class designed to fetch currency information from the website of The Polish National Bank (Narodowy Bank Polski).
-  class Nbp < CurrencySpy::Scraper
+  class Nbp < CurrencySpy::ScraperBase
 
     # Constructor method.
     # Initializes the following:

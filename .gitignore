@@ -3,3 +3,4 @@ pkg/*
 .bundle
 nbproject
 .rvmrc
+.idea

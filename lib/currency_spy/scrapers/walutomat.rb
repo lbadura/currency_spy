@@ -1,6 +1,6 @@
 module CurrencySpy
-    # A class designed to fetch medium currency rates from Walutomat.pl a social currency exchange platform.
-  class Walutomat < CurrencySpy::Scraper
+  # A class designed to fetch medium currency rates from Walutomat.pl a social currency exchange platform.
+  class Walutomat < CurrencySpy::ScraperBase
 
     # Constructor method.
     # Initializes the following:

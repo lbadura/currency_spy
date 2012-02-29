@@ -1,7 +1,7 @@
 module CurrencySpy
   # A base class for all scrapers. Defines the common logic which
   # is used across all of them.
-  class Scraper
+  class ScraperBase
     # Holds all data which is being fetched by the scrapers.
     
     # Each item has to be implemented as a method in the scraper sub class.

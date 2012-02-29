@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "A plain instance of scraper" do
   before :each do
-    @scraper = CurrencySpy::Scraper.new
+    @scraper = CurrencySpy::ScraperBase.new
   end
 
   it "should not contain a list of available currency codes" do
@@ -25,7 +25,7 @@ end
 
 describe "An instance of a scraper with an URI" do
   before :each do
-    @scraper = CurrencySpy::Scraper.new
+    @scraper = CurrencySpy::ScraperBase.new
     @scraper.url = 'http://www.google.com'
   end
 

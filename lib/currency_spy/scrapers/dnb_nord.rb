@@ -1,6 +1,6 @@
 module CurrencySpy
   # Class designed to fetch data from DnB Nord's website.
-  class DnbNord < CurrencySpy::Scraper
+  class DnbNord < CurrencySpy::ScraperBase
 
     attr_accessor :session_date, :session_no
 

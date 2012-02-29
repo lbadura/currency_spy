@@ -1,11 +1,5 @@
 $:.unshift File.dirname(__FILE__)
 require 'mechanize'
-require 'currency_spy/scraper'
-
-scrapers = %w(nbp walutomat dnb_nord)
-scrapers.each do |scraper|
-  require "currency_spy/#{scraper}"
-end
 
 # This gem is a set of scrapers to fetch currencies from various
 # institutions' websites. It's primary use is to monitor the changes of
@@ -18,11 +12,15 @@ end
 # Copyright:: Copyright (c) 2011 Łukasz Badura
 # License::   MIT license.
 module CurrencySpy
+  require 'currency_spy/scraper_base'
+  require 'currency_spy/scrapers/nbp'
+  require 'currency_spy/scrapers/dnb_nord'
+  require 'currency_spy/scrapers/walutomat'
   # Default date format used for date presentation across the code
   DATE_FORMAT = "%d-%m-%Y"
 
   # Returns a string representation of a given date in the default format
   def self.datestr(date)
-    return date.strftime(CurrencySpy::DATE_FORMAT)
+    date.strftime(CurrencySpy::DATE_FORMAT)
   end
 end
