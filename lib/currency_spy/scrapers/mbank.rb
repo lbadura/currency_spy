@@ -1,5 +1,5 @@
 module CurrencySpy
-  class Mbank < CurrencySpy::Scraper
+  class Mbank < CurrencySpy::ScraperBase
     attr_accessor :session_date, :session_no
 
     def initialize

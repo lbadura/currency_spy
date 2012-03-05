@@ -16,6 +16,7 @@ module CurrencySpy
   require 'currency_spy/scrapers/nbp'
   require 'currency_spy/scrapers/dnb_nord'
   require 'currency_spy/scrapers/walutomat'
+  require 'currency_spy/scrapers/mbank'
   # Default date format used for date presentation across the code
   DATE_FORMAT = "%d-%m-%Y"
 
