@@ -5,11 +5,8 @@ describe "mBank scraper instance" do
 
   it_should_behave_like 'a valid scraper'
 
-  it "should introduce itself" do
-    scraper.institution.should == "mBank"
-  end
-
-  it "should have url set to mBank website" do
-    scraper.url.should == 'http://www.mbank.pl/informacja/kursy-walut.html'
-  end
+  specify {scraper.institution.should == 'mBank'}
+  specify {scraper.url.should == 'http://www.mbank.pl/informacja/kursy-walut.html'}
+  specify {scraper.sell_rate.should_not be_nil}
+  specify {scraper.buy_rate.should_not be_nil}
 end

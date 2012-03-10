@@ -27,12 +27,12 @@ module CurrencySpy
     # evaluating to true.
     def page(reload = false)
       return nil if   url.nil?
-      unless reload
-        @page ||= Mechanize.new.get(url)
-      else
+      if reload
         @page = Mechanize.new.get(url)
+      else
+        @page ||= Mechanize.new.get(url)
       end
-      return @page
+      @page
     end
 
     # Method which calls all rate fetching methods from the sub class and returns
@@ -42,15 +42,15 @@ module CurrencySpy
         raise Exception.new("This method should be invoked from CurrencySpy::Scraper sub class")
       else
         check_currency_code_validity
-        response = {}
+        rate_results = {}
         RATE_DATA.each do |rate|
           symbol = rate.to_sym
           if self.class.instance_methods.include?(symbol)
             value = self.send(symbol)
-            response[symbol] = value unless value.nil?
+            rate_results[symbol] = value unless value.nil?
           end
         end
-        return response
+        rate_results
       end
     end
 
@@ -59,7 +59,7 @@ module CurrencySpy
     # about given currency.
     def check_currency_code_validity
       if available_codes.include?(currency_code)
-        return true
+        true
       else
         raise Exception.new("Unsupported currency code: #{currency_code}")
       end

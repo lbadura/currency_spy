@@ -19,12 +19,11 @@ module CurrencySpy
       regexp = Regexp.new(currency_code)
       page.search('//tr[@valign="middle"]').each do |tr|
         tr.search('td').each do |td|
-          if (regexp.match(td.content))
+          if regexp.match(td.content)
             return td.next_element.content.sub(',','.').to_f
           end
         end
       end
-      return nil
     end
 
     # Get the selling rate from the parsed website
@@ -32,26 +31,23 @@ module CurrencySpy
       regexp = Regexp.new(currency_code)
       page.search('//tr[@valign="middle"]').each do |tr|
         tr.search('td').each do |td|
-          if (regexp.match(td.content))
+          if regexp.match(td.content)
             return td.next_element.next_element.content.sub(',','.').to_f
           end
         end
       end
-      return nil
     end
 
     # Get the time for this rate (based on the information on the website)
     def rate_time
       regexp = Regexp.new(/\d\d\d\d-\d\d-\d\d/)
-      res = nil
       page.search('//p[@class="nag"]').each do |p|
         p.search('b').each do |b|
-          if (regexp.match(b.content))
-            res = b.content
+          if regexp.match(b.content)
+            return DateTime.strptime(b.content, "%Y-%m-%d")
           end
         end
       end
-      return DateTime.strptime(res, "%Y-%m-%d")
     end
     
   end

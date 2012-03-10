@@ -21,31 +21,26 @@ module CurrencySpy
     def url
       dnb_session_no = @session_no ||= 1
       session_time = dnb_session_no == 2 ? "12:15" : "08:15"
-      return "http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=#{session_time}"
+      "http://www.dnbnord.pl/pl/tabela-kursow-walut-dla-kredytow/go:godzina=#{session_time}"
     end
 
-    # Fetches the selling rate
     def sell_rate
       regexp = Regexp.new(currency_code)
-      res = nil
       page.search("//td").each do |td|
-        if (regexp.match(td.content))
-          res = td.next_element.next_element.content.to_f
+        if regexp.match(td.content)
+          return result = td.next_element.next_element.content.to_f
         end
       end
-      return res
     end
 
-    # Fetches the buying rate
     def buy_rate
       regexp = Regexp.new(currency_code)
-      res = nil
       page.search("//td").each do |td|
-        if (regexp.match(td.content))
-          res = td.next_element.content.to_f
+        if regexp.match(td.content)
+          return td.next_element.content.to_f
         end
       end
-      return res
+      res
     end
 
     # Fetches the time of given rates
